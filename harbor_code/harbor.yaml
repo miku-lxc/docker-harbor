@@ -1,0 +1,74 @@
+# 指定Harbor的管理界面及镜像仓库访问地址
+hostname: 192.168.3.101  ##可以为域名，但是你懂的需要备案
+
+# http相关配置
+http:
+  # http端口，如果配置了https，默认使用https
+  port: 80
+
+# https相关配置
+#https:
+#  # https端口
+#  port: 443
+#  # 指定Habor中Nginx的https的证书和私钥地址
+#  certificate: /your/certificate/path
+#  private_key: /your/private/key/path
+
+# Harbor默认管理员账号admin的密码
+harbor_admin_password: Harbor12345
+
+# Harbor内置PostgreSQL数据库配置
+database:
+  # root用户密码
+  password: root123
+  # 最大空闲连接数，小于等于0表示无空闲连接
+  max_idle_conns: 50
+  # 最大连接数，小于等于0表示无限制
+  max_open_conns: 100
+
+# 默认数据目录
+data_volume: /data
+
+# Clair configuration
+clair:
+  # The interval of clair updaters, the unit is hour, set to 0 to disable the updaters.
+  updaters_interval: 12
+
+jobservice:
+  # Maximum number of job workers in job service
+  max_job_workers: 10
+
+notification:
+  # Maximum retry count for webhook job
+  webhook_job_max_retry: 10
+
+chart:
+  # Change the value of absolute_url to enabled can enable absolute url in chart
+  absolute_url: disabled
+
+# 日志配置
+log:
+  # 日志级别配置：debug, info, warning, error, fatal
+  level: info
+  # 日志本地存储策略
+  local:
+    # 日志文件滚动数量，超过该数量会删除日志文件
+    rotate_count: 50
+    # 日志滚动大小，超过该大小会生成新的日志文件
+    rotate_size: 200M
+    # 日志存储路径
+    location: /var/log/harbor
+
+# This attribute is for migrator to detect the version of the .cfg file, DO NOT MODIFY!
+_version: 1.10.0
+
+# Configure proxies to be used by Clair, the replication jobservice, and Harbor. Leave blank if no proxies are required.
+proxy:
+  http_proxy:
+  https_proxy:
+  # no_proxy endpoints will appended to 127.0.0.1,localhost,.local,.internal,log,db,redis,nginx,core,portal,postgresql,jobservice,registry,registryctl,clair,chartmuseum,notary-server
+  no_proxy:
+  components:
+    - core
+    - jobservice
+    - clair
