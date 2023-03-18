@@ -26,7 +26,8 @@
     
    ✔ ----Harbor has been installed and started successfully.---- 出现此代码则代表成功，如果失败自己查日志百度/维基
   
-  
+        ![图片](https://user-images.githubusercontent.com/126040842/226101265-2449e387-c313-4792-96e0-2ae7ff58172a.png)
+
     5.启动成功后：docker images命令查看下安装Harbor安装的Docker镜像
     
     
