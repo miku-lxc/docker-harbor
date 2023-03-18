@@ -18,8 +18,9 @@
        tar -xvf harbor-offline-installer-v2.5.3.tgz
     
     3.修改Harbor的配置文件harbor.yml，修hostname，建议用vi的搜索功能，如果没有则自行添加，并注释掉https配置
-    
-    
+      
+      详细见目录里面的harbor.yaml 里面有详细说明
+      
     4.执行包自带的harbor ：执行之前是否设置好存储路径，否则报错
     
     ./install.sh  or bash install.sh 都可以
@@ -45,21 +46,31 @@
               
               修改主机号，密码等修改的部分  ：使用变量，实现用户交互，让用户输入就可以自动修改 （细节部分本次不做暂时，比如验证ip地址的准确啥的）
               
-          
               
         1.2 所涉及的重要命令
             
-            1.sed -ie 可以实现替代插入等强大的功能
+            1.sed -ie 可以实现替代插入等强大的功能 不愧是文本三剑客 
             
-            2.  用户输入
+            2.  用户输入 read hostname  #将输入的东西传入hostname
             
             3.if ‘’‘’‘else 条件判断（shell）
               
-            4. 
-            
-          
-          
+            4. 设计选项，多定义几个函数，更加人性化
         
+    2.代码实现：见/shellcode目录下
+          
+          
+          
+          
+三、复盘和改进
+
+
+      1.总结
+      
+      
+      
+      
+      2.改进
     
     
     
