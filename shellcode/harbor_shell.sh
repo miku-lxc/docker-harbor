@@ -28,7 +28,7 @@ function xiugaiFun(){
         file='/miku/test1/harbor/harbor.yml'
         #grep  xx  harbor.yml
 
-###请在这里修改你的主机名之类的
+###请在这里修改你的主机名之类的 ：xxx是你替换的选项 可以选择替换端口和主机以及以存储路径，后续有需要再添加
         sed -i 's/hostname: reg.mydomain.com/hostname: x.x.x.x /g' $file
         sed -i 's/port: 80 /port :xx  /g' $file
         sed -i 's/data_volume: /data/data_volume: /xxx/g' $file
